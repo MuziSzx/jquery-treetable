@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery treetable</title>
+    <link rel="stylesheet" href="css/screen.css" media="screen" />
+    <link rel="stylesheet" href="css/jquery.treetable.css" />
+    <link rel="stylesheet" href="css/jquery.treetable.theme.default.css" />
+  </head>
+  <style>
+      table.treetable{
+          border-color: #ddd;
+      }
+      table.treetable{
+          border:1px solid #ddd;
+          border-top:none;
+          border-left: none;
+          margin: 0;
+      }
+      table.treetable thead tr th{
+          border-color: #ddd;
+          border-top:none;
+          border-left: none;
+          border-bottom: none;
+          font-weight: bold;
+      }
+      table.treetable tbody tr td{
+          border-left: none;
+      }
+
+
+  table.gridtable {
+      font-family: verdana,arial,sans-serif;
+      font-size:11px;
+      color:#333333;
+      border-width: 1px;
+      border-color: #666666;
+      border-collapse: collapse;
+  }
+  table.gridtable th {
+      border-width: 1px;
+      padding: 8px;
+      border-style: solid;
+      border-color: #666666;
+      background-color: #dedede;
+  }
+  table.gridtable td {
+    text-align: center;
+      border-width: 1px;
+      padding: 8px;
+      border-style: solid;
+      border-color: #666666;
+      background-color: #ffffff;
+  }
+
+
+  </style>
+  <body> 
+      <table id="example-advanced" class="gridtable">
+          <tr>
+              <th>日期</th><th>广告主名称</th><th>总点击</th><th>总点击</th><th>排重点击</th><th>总激活</th><th>排重激活</th>
+              <th>回传下游激活/注册</th><th>下游收到激活/注册</th><th>扣量激活/注册</th><th>增长环比</th>
+          </tr>
+          <tr>
+              <td>2018-01-24</td><td></td><td>1878456146</td><td>164161</td><td>16545 </td><td>16555</td><td>16458</td><td>16441</td><td>1878456146</td><td>35</td><td>-39.82%</td>
+          </tr>
+          <tr data-tt-id="1">
+              <td>2018-01-24</td><td>网易考拉</td><td>1878456146</td><td>164161</td><td>16545 </td><td>16555</td><td>16458</td><td>16441</td><td>1878456146</td><td>35</td><td>-39.82%</td>
+          </tr>
+          <tr data-tt-id="2" data-tt-parent-id="1">
+              <td>2018-01-24</td><td>网易考2</td><td>1878456146</td><td>164161</td><td>16545 </td><td>16555</td><td>16458</td><td>16441</td><td>1878456146</td><td>35</td><td>-39.82%</td>
+          </tr>
+          <tr data-tt-id="3" data-tt-parent-id="1">
+              <td>2018-01-24</td><td>网易考3</td><td>1878456146</td><td>164161</td><td>16545 </td><td>16555</td><td>16458</td><td>16441</td><td>1878456146</td><td>35</td><td>-39.82%</td>
+          </tr>
+          <tr data-tt-id="4" data-tt-parent-id="1">
+              <td>2018-01-24</td><td>网易考4</td><td>1878456146</td><td>164161</td><td>16545 </td><td>16555</td><td>16458</td><td>16441</td><td>1878456146</td><td>35</td><td>-39.82%</td>
+          </tr>
+          <tr  data-tt-id="5">
+              <td>2018-01-24</td><td>美团</td><td>1878456146</td><td>164161</td><td>16545 </td><td>16555</td><td>16458</td><td>16441</td><td>1878456146</td><td>35</td><td>-39.82%</td>
+          </tr>
+          <tr data-tt-id="6" data-tt-parent-id="5">
+              <td>2018-01-24</td><td>美团2</td><td>1878456146</td><td>164161</td><td>16545 </td><td>16555</td><td>16458</td><td>16441</td><td>1878456146</td><td>35</td><td>-39.82%</td>
+          </tr>
+          <tr data-tt-id="7" data-tt-parent-id="5">
+              <td>2018-01-24</td><td>美团3</td><td>1878456146</td><td>164161</td><td>16545 </td><td>16555</td><td>16458</td><td>16441</td><td>1878456146</td><td>35</td><td>-39.82%</td>
+          </tr>
+          <tr data-tt-id="8" data-tt-parent-id="5">
+              <td>2018-01-24</td><td>美团4</td><td>1878456146</td><td>164161</td><td>16545 </td><td>16555</td><td>16458</td><td>16441</td><td>1878456146</td><td>35</td><td>-39.82%</td>
+          </tr>
+      </table>
+    
+      <script src="jquery-1.11.2.min.js"></script>
+    <script src="jquery.treetable.js"></script>
+   <script>
+   /* 初始化数据 */
+$("#example-advanced").treetable({ expandable: true });
+/* 高亮显示 */
+$("#example-advanced tbody").on("mousedown", "tr", function() {
+
+    $(".selected").not(this).removeClass("selected");
+
+    $(this).toggleClass("selected");
+
+});
+
+  </script>
+  </body>
+</html>
